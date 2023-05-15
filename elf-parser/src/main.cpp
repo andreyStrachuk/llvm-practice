@@ -28,13 +28,20 @@ int main (int argc, char *argv[]) {
         return -1;
     }
 
+    std::cout << symbolArr->size << '\n';
+
+    std::cout << numberOfStrings << std::endl;
+
     std::map <std::pair<u_int64_t, u_int64_t>, int> funcHashTable; 
     char **strArray = new char *[numberOfStrings];
     initializeArrOfPointers (strArray, numberOfStrings, addrs);
+
+    for (size_t i = 0; i < numberOfStrings; i++) {
+        std::cout << strArray[i] << '\n';
+    }
+
     fillHashMap (funcHashTable, strArray, numberOfStrings, symbolArr);
     dumpMapToFile (funcHashTable, symbolArr);
-
-    
 
     return 0;
 }
